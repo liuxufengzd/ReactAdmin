@@ -1,0 +1,34 @@
+.left-nav {
+    background: aliceblue;
+    width: 200px;
+    padding: 10px 0;
+}
+
+.item {
+    margin-bottom: 10px;
+    /*让一个文字在父元素中垂直居中，
+    只需将父元素的line-height设置为一个和父元素height一样的值*/
+    height: 25px;
+    line-height: 25px;
+    /* 设置item的右内边距，将文字向内移动  */
+    padding-left: 18px;
+    font-size: 15px;
+}
+
+.line {
+    /* 设置/的距离 */
+    padding: 0 2px;
+}
+
+.item:hover {
+    background: gray;
+}
+
+.item a {
+    color: black;
+    text-decoration: none;
+}
+
+.item a:hover {
+    color: red;
+}

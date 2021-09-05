@@ -1,9 +1,20 @@
-import React from "react";
+import React, {lazy, Suspense} from 'react';
+import {Route, Switch} from "react-router-dom";
 
-export default function App(){
+const Login = lazy(() => import('./pages/login/Login'))
+const Admin = lazy(() => import('./pages/admin/Admin'))
+
+const App = () => {
     return (
         <>
-            hello react
+            <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                    <Route path='/login' component={Login}/>
+                    <Route path='/' component={Admin}/>
+                </Switch>
+            </Suspense>
         </>
-    )
-}
+    );
+};
+
+export default App;

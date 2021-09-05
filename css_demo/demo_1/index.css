@@ -1,0 +1,17 @@
+#pic {
+    width: 190px;
+    height: 470px;
+    overflow: hidden;
+    background: #F4F4F4;
+}
+
+#pic li{
+    margin-bottom: 10px;
+}
+
+#pic img{
+    /*只需设一个便会自动按比例显示图片*/
+    width: 100%;
+}
+
+
