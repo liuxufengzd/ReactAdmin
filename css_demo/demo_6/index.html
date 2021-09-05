@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_7</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .box1 {
+            background-color: aqua;
+        }
+
+        .clearFix::before,
+        .clearFix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .box2 {
+            height: 200px;
+            width: 100px;
+            background-color: red;
+            float: left;
+        }
+
+        .box3 {
+            height: 100px;
+            width: 100px;
+            background-color: beige;
+            float: left;
+        }
+
+        .box4 {
+            height: 100px;
+            width: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="box1 clearFix">box1
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+    </div>
+    <div class="box4">box4</div>
+</div>
+</body>
+</html>
