@@ -1,0 +1,41 @@
+#header, #main, #footer {
+    width: 650px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 100px;
+    background: gold;
+}
+
+#main {
+    height: 300px;
+    background: blue;
+    margin: 10px auto;
+}
+
+#main_right, #main_left, #main_middle {
+    float: left;
+    height: 100%;
+}
+
+#main_left {
+    width: 150px;
+    background: crimson;
+}
+
+#main_middle {
+    width: 330px;
+    background: green;
+    margin: 0 10px;
+}
+
+#main_right {
+    width: 150px;
+    background: yellow;
+}
+
+#footer {
+    height: 100px;
+    background: gray;
+}
