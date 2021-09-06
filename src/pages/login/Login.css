@@ -1,0 +1,48 @@
+#root {
+    background-image: url("/src/pages/login/img/bg.jpg");
+    background-size: 100% 100%;
+}
+
+.header {
+    background-color: rgba(21, 20, 13, 0.5);
+    height: 100px;
+    position: relative;
+}
+
+.header img {
+    height: 80%;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.header h1 {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 5px;
+    left: 200px;
+}
+
+.body {
+    height: 350px;
+    width: 450px;
+    background-color: white;
+    margin: 50px auto;
+}
+
+.body h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.body Form {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.login-form-button{
+    width: 300px;
+}
