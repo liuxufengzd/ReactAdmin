@@ -10,7 +10,17 @@ const store = {
     },
     removeUser() {
         localStorage.removeItem(USER_KEY)
-    }
+    },
+    cities: [
+        {
+            code:'1',
+            name:'北京'
+        },
+        {
+            code:'2',
+            name:'成都'
+        }
+    ]
 }
 
 export default store

@@ -5,6 +5,21 @@
       "username": "admin",
       "password": "admin"
     }
-
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "city": "北京",
+      "temp1": 10,
+      "temp2": 20,
+      "weather": "晴"
+    },
+    {
+      "id": 2,
+      "city": "成都",
+      "temp1": 20,
+      "temp2": 30,
+      "weather": "风"
+    }
   ]
 }
