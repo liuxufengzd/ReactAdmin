@@ -9,17 +9,104 @@
   "cities": [
     {
       "id": 1,
-      "city": "北京",
+      "city": "beijing",
       "temp1": 10,
       "temp2": 20,
-      "weather": "晴"
+      "weather": "sunny"
     },
     {
       "id": 2,
-      "city": "成都",
+      "city": "chengdu",
       "temp1": 20,
       "temp2": 30,
-      "weather": "风"
+      "weather": "windy"
+    }
+  ],
+  "category": [
+    {
+      "name": "Computer",
+      "parentId": 0,
+      "id": 1
+    },
+    {
+      "parentId": 0,
+      "id": 2,
+      "name": "Furniture"
+    },
+    {
+      "name": "Food",
+      "parentId": 0,
+      "id": 3
+    },
+    {
+      "parentId": 1,
+      "id": 4,
+      "name": "PC1"
+    },
+    {
+      "parentId": 1,
+      "id": 5,
+      "name": "PC2"
+    },
+    {
+      "parentId": 2,
+      "id": 6,
+      "name": "Chair"
+    },
+    {
+      "parentId": 2,
+      "id": 7,
+      "name": "Table"
+    },
+    {
+      "name": "Meat",
+      "parentId": 3,
+      "id": 8
+    },
+    {
+      "name": "Vegetable",
+      "parentId": 3,
+      "id": 9
+    },
+    {
+      "name": "Fruit",
+      "parentId": 0,
+      "id": "FaK1Mo8nrlcp22W2s5DoZ"
+    },
+    {
+      "parentId": 0,
+      "name": "Person",
+      "id": "oj09OC3w_BQRxRF-DRqHI"
+    },
+    {
+      "name": "Books",
+      "parentId": 0,
+      "id": "YTMhe09YMOOZSL3DbezD7"
+    },
+    {
+      "name": "c",
+      "parentId": "FaK1Mo8nrlcp22W2s5DoZ",
+      "id": "os9-iY-UzV3jo3L1S4cX8"
+    },
+    {
+      "parentId": "oj09OC3w_BQRxRF-DRqHI",
+      "name": "aa",
+      "id": "GSEGlqODPf2GnLWe5PIiz"
+    },
+    {
+      "name": "fd",
+      "parentId": 1,
+      "id": "7W-UegVKyTqCY2aJYy93M"
+    },
+    {
+      "name": "sddd",
+      "parentId": 1,
+      "id": "U9-Gsxo9H9msyiWtadN14"
+    },
+    {
+      "name": "ggggg",
+      "parentId": "jpdecfiO3wt89gMpwC2ko",
+      "id": "WXDXbkyc265dfOSoeq8G8"
     }
   ]
 }

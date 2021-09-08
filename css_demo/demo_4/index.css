@@ -3,22 +3,21 @@ a {
 }
 
 #nav {
-    width: 1203px;
-    height: 48px;
+    height: 50px;
     background-color: #E8E7E3;
+    display: flex;
 }
 
 #nav li {
-    float: left;
-    height: 100%;
-    line-height: 48px;
+    flex-grow: 1;
+    line-height: 50px;
+    text-align: center;
 }
 
 #nav a {
     /*只有块元素长宽设置有效*/
     display: block;
     color: #777777;
-    padding:0 44px;
 }
 
 #nav a:hover{

@@ -1,0 +1,17 @@
+.left-nav-header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.left-nav-header img{
+    height:80%;
+}
+
+.left-nav-header h1{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    padding-right: 5px;
+}

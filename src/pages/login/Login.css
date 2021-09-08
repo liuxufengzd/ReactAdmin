@@ -6,19 +6,18 @@
 .header {
     background-color: rgba(21, 20, 13, 0.5);
     height: 100px;
+    display: flex;
 }
 
 .header img {
     height: 80%;
     margin-left: 100px;
     margin-top: 10px;
-    float: left;
 }
 
 .header h1 {
     color: white;
     font-size: 50px;
-    float: left;
     padding-left: 20px;
     padding-top: 5px;
 }

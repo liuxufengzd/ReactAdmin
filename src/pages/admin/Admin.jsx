@@ -1,9 +1,9 @@
 import React, {lazy,Suspense} from 'react';
 import {Layout} from 'antd';
-import memoryUtil from "../../utils/storageUtil";
 import {Redirect, Route, Switch} from 'react-router-dom'
 import Header from "../../components/header/Header";
-import LeftNav from "../../components/left-nav/LeftNav";
+import LeftNav from "../../components/leftnav/LeftNav";
+import memo from "../../utils/memoryUtil";
 const Home = lazy(() => import('./home/Home'))
 const Category = lazy(() => import('./category/Category'))
 const User = lazy(() => import('./user/User'))
@@ -16,10 +16,8 @@ const Pie = lazy(() => import('./charts/Pie'))
 const {Footer, Sider, Content} = Layout;
 
 const Admin = props => {
-    const user = memoryUtil.getUser();
-
     return (
-        !user.id ? <Redirect to='/login'/> :
+        !memo.user.id ? <Redirect to='/login'/> :
             <Layout style={{height: '100%'}}>
                 <Sider><LeftNav/></Sider>
                 <Layout>
