@@ -63,8 +63,7 @@ const ProductHome = props => {
 
     return (
         <Card title={<Title/>}
-              extra={<Button onClick={() => {
-              }} icon={<PlusOutlined/>} type="primary">Add</Button>}
+              extra={<Button onClick={() => props.history.push('/product/addupdate')} icon={<PlusOutlined/>} type="primary">Add</Button>}
               style={{width: '100%'}}>
             <Table dataSource={data} bordered rowKey='id'
                    pagination={{
