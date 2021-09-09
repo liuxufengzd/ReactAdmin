@@ -2,6 +2,7 @@ import axios from "axios";
 import {message} from "antd";
 import {SERVER_URL} from "../constant";
 import {nanoid} from 'nanoid'
+import PropTypes from "prop-types";
 
 const ajax = (url, data = {}, method = 'GET') => {
     console.log(data, url, method)
@@ -29,15 +30,30 @@ const ajax = (url, data = {}, method = 'GET') => {
     })
 }
 
+ajax.prototype = {
+    url: PropTypes.string.isRequired,
+    data: PropTypes.object,
+    method: PropTypes.string
+}
+
 export const reqWeather = code => ajax(`${SERVER_URL}/cities/${code}`)
 
 export const reqLogin = (username, password) => ajax(`${SERVER_URL}/login`, {username, password})
 
 export const reqCategory = parentId => ajax(`${SERVER_URL}/category`, {parentId})
 
-export const reqUpdateCategory = (id, name, parentId) => ajax(`${SERVER_URL}/category/${id}`, {name, parentId, id}, 'put')
+export const reqProductCategory = id => ajax(`${SERVER_URL}/category/${id}`)
+
+export const reqUpdateCategory = (id, name, parentId) =>
+    ajax(`${SERVER_URL}/category/${id}`, {name, parentId, id}, 'put')
 
 export const reqAddCategory = (parentId, name) => ajax(`${SERVER_URL}/category`, {parentId, name, id: nanoid()}, 'post')
 
 export const reqDelCategory = id => ajax(`${SERVER_URL}/category/${id}`, null, 'delete')
+
+export const reqProductByPage = (pageNum, pageSize) => ajax(`${SERVER_URL}/product`, {pageSize, pageNum})
+
+export const reqSearchProduct = (searchInput, searchType) => ajax(`${SERVER_URL}/product`, {[searchType]: searchInput})
+
+export const reqUpdateStatus = record => ajax(`${SERVER_URL}/product/${record.id}`, {...record}, 'put')
 

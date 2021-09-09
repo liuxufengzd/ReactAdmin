@@ -50,48 +50,49 @@ const Category = () => {
         setParentInfo({parentId: 0, name, id: ''})
     }
 
-    async function handleAdd() {
+    function handleAdd() {
         if (add_form.getFieldError('name')[0]) return
-        const parentId = add_form.getFieldValue('parentId')
-        const name = add_form.getFieldValue('name')
-        add_form.resetFields()
-        let res = await reqAddCategory(parentId, name)
-        if (res) {
-            reFetch = true;
-            await getCategory(parentId)
-        } else message.error('add failed!')
-        setAddVisible(false)
+        // 触发表单验证
+        add_form.validateFields().then(
+            async values => {
+                let res = await reqAddCategory(values.parentId, values.name)
+                if (res) {
+                    reFetch = true;
+                    await getCategory(values.parentId)
+                } else message.error('add failed!')
+                add_form.resetFields()
+                setAddVisible(false)
+            }
+        )
     }
 
-    async function handleUpdate() {
-        if (update_form.getFieldError('name')[0]) return
-        const name = update_form.getFieldValue('name')
-        console.log(name)
-        update_form.resetFields()
-        let res = await reqUpdateCategory(id, name, parentId)
-        if (res) {
-            reFetch = true;
-            await getCategory(parentId)
-        } else message.error('update failed!')
-        setUpdateVisible(false)
+    function handleUpdate() {
+        update_form.validateFields().then(
+            async values => {
+                let res = await reqUpdateCategory(id, values.name, parentId)
+                if (res) {
+                    reFetch = true;
+                    await getCategory(parentId)
+                } else message.error('update failed!')
+                update_form.resetFields()
+                setUpdateVisible(false)
+            }
+        )
     }
 
-    function confirmDel(id) {
+    function confirmDel(value) {
         Modal.confirm({
             title: 'Are you sure to delete?',
             icon: <ExclamationCircleOutlined/>,
-            onOk() {
-                handleDel(id)
+            onOk: async () => {
+                let res = await reqDelCategory(value.id)
+                if (res) {
+                    if (value.parentId === 0)
+                        reFetch = true;
+                    await getCategory(parentId)
+                } else message.error('delete failed!')
             }
         });
-    }
-
-    async function handleDel(id) {
-        let res = await reqDelCategory(id)
-        if (res) {
-            reFetch = true;
-            await getCategory(parentId)
-        } else message.error('delete failed!')
     }
 
     function showUpdate(value) {
@@ -100,48 +101,46 @@ const Category = () => {
     }
 
     return (
-        <div>
-            <Card title={parentId === 0 ? 'first class' :
-                (
-                    <span>
+        <Card title={parentId === 0 ? 'first class' :
+            (
+                <span>
                         <LinkButton onClick={goBack}>first class</LinkButton>
                         <ArrowRightOutlined/>
                         <span style={{marginLeft: 5}}>{name}</span>
                     </span>
-                )}
-                  extra={<Button onClick={() => setAddVisible(true)}
-                                 icon={<PlusOutlined/>} type="primary">Add</Button>}
-                  style={{width: '100%'}}>
-                <Table dataSource={parentId === 0 ? firstData : secondData} bordered rowKey='id'
-                       pagination={{defaultPageSize: 5, showQuickJumper: true}}
-                       loading={loading}
-                >
-                    <Column title="Name" dataIndex="name" width={900}/>
-                    <Column
-                        title="Action"
-                        key="action"
-                        render={rowData => (
-                            <Space size="middle">
-                                <LinkButton onClick={() => showUpdate(rowData)}
-                                            style={{color: '#00BFFF'}}>modify</LinkButton>
-                                {parentId === 0 ? <LinkButton onClick={goNext(rowData)}
-                                                              style={{color: '#00BFFF'}}>children</LinkButton> : null}
-                                <LinkButton style={{color: 'red'}}
-                                            onClick={() => confirmDel(rowData.id)}>del</LinkButton>
-                            </Space>
-                        )}
-                    />
-                </Table>
-                <Modal title="Update Category" visible={updateVisible} onOk={handleUpdate}
-                       onCancel={() => setUpdateVisible(false)}>
-                    <UpdateForm initName={name} setForm={form => update_form = form}/>
-                </Modal>
-                <Modal title="Add Category" visible={addVisible} onOk={handleAdd}
-                       onCancel={() => setAddVisible(false)}>
-                    <AddForm category={firstData} setForm={form => add_form = form}/>
-                </Modal>
-            </Card>
-        </div>
+            )}
+              extra={<Button onClick={() => setAddVisible(true)}
+                             icon={<PlusOutlined/>} type="primary">Add</Button>}
+              style={{width: '100%'}}>
+            <Table dataSource={parentId === 0 ? firstData : secondData} bordered rowKey='id'
+                   pagination={{defaultPageSize: 5, showQuickJumper: true}}
+                   loading={loading}
+            >
+                <Column title="Name" dataIndex="name" width={900}/>
+                <Column
+                    title="Action"
+                    key="action"
+                    render={rowData => (
+                        <Space size="middle">
+                            <LinkButton onClick={() => showUpdate(rowData)}
+                                        style={{color: '#00BFFF'}}>modify</LinkButton>
+                            {parentId === 0 ? <LinkButton onClick={goNext(rowData)}
+                                                          style={{color: '#00BFFF'}}>children</LinkButton> : null}
+                            <LinkButton style={{color: 'red'}}
+                                        onClick={() => confirmDel(rowData)}>del</LinkButton>
+                        </Space>
+                    )}
+                />
+            </Table>
+            <Modal title="Update Category" visible={updateVisible} onOk={handleUpdate}
+                   onCancel={() => setUpdateVisible(false)}>
+                <UpdateForm initName={name} setForm={form => update_form = form}/>
+            </Modal>
+            <Modal title="Add Category" visible={addVisible} onOk={handleAdd}
+                   onCancel={() => setAddVisible(false)}>
+                <AddForm category={firstData} setForm={form => add_form = form}/>
+            </Modal>
+        </Card>
     );
 };
 

@@ -1,9 +1,10 @@
-import React, {lazy,Suspense} from 'react';
+import React, {lazy, Suspense} from 'react';
 import {Layout} from 'antd';
 import {Redirect, Route, Switch} from 'react-router-dom'
 import Header from "../../components/header/Header";
 import LeftNav from "../../components/leftnav/LeftNav";
 import memo from "../../utils/memoryUtil";
+
 const Home = lazy(() => import('./home/Home'))
 const Category = lazy(() => import('./category/Category'))
 const User = lazy(() => import('./user/User'))

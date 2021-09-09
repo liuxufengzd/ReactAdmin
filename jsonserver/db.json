@@ -22,9 +22,94 @@
       "weather": "windy"
     }
   ],
+  "product": [
+    {
+      "id": 1,
+      "name": "n1",
+      "desc": "d1",
+      "pageNum": 1,
+      "pageSize": 3,
+      "total": 7,
+      "status": 1,
+      "data": [
+        {
+          "id": 1,
+          "name": "pc1",
+          "desc": "this is pc1",
+          "price": 1000,
+          "status": 1,
+          "firstId": 1,
+          "secondId": 4
+        },
+        {
+          "id": 2,
+          "name": "pc2",
+          "desc": "this is pc2",
+          "price": 2000,
+          "status": 0,
+          "firstId": 1
+        },
+        {
+          "id": 3,
+          "name": "pc3",
+          "desc": "this is pc3",
+          "price": 2000,
+          "status": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "n2",
+      "desc": "d2",
+      "pageNum": 2,
+      "pageSize": 3,
+      "total": 7,
+      "data": [
+        {
+          "id": 4,
+          "name": "pc4",
+          "desc": "this is pc4",
+          "price": 4000,
+          "status": 1
+        },
+        {
+          "id": 5,
+          "name": "pc5",
+          "desc": "this is pc5",
+          "price": 5000,
+          "status": 1
+        },
+        {
+          "id": 6,
+          "name": "pc6",
+          "desc": "this is pc6",
+          "price": 6000,
+          "status": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "n3",
+      "desc": "d3",
+      "pageNum": 3,
+      "pageSize": 3,
+      "total": 7,
+      "data": [
+        {
+          "id": 7,
+          "name": "pc7",
+          "desc": "this is pc7",
+          "price": 7000,
+          "status": 0
+        }
+      ]
+    }
+  ],
   "category": [
     {
-      "name": "Computer",
+      "name": "Computers",
       "parentId": 0,
       "id": 1
     },
@@ -82,31 +167,6 @@
       "name": "Books",
       "parentId": 0,
       "id": "YTMhe09YMOOZSL3DbezD7"
-    },
-    {
-      "name": "c",
-      "parentId": "FaK1Mo8nrlcp22W2s5DoZ",
-      "id": "os9-iY-UzV3jo3L1S4cX8"
-    },
-    {
-      "parentId": "oj09OC3w_BQRxRF-DRqHI",
-      "name": "aa",
-      "id": "GSEGlqODPf2GnLWe5PIiz"
-    },
-    {
-      "name": "fd",
-      "parentId": 1,
-      "id": "7W-UegVKyTqCY2aJYy93M"
-    },
-    {
-      "name": "sddd",
-      "parentId": 1,
-      "id": "U9-Gsxo9H9msyiWtadN14"
-    },
-    {
-      "name": "ggggg",
-      "parentId": "jpdecfiO3wt89gMpwC2ko",
-      "id": "WXDXbkyc265dfOSoeq8G8"
     }
   ]
 }

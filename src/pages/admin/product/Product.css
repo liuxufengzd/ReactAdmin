@@ -1,0 +1,12 @@
+.detail-item-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.detail-img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #002140;
+    margin-right: 10px;
+}

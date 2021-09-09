@@ -13,7 +13,6 @@ import {TITLE_KEY} from "../../constant";
 const {Item, SubMenu} = Menu
 
 const LeftNav = () => {
-
     const handleClick = e => {
         PubSub.publish(TITLE_KEY, e.key)
     };
