@@ -63,7 +63,8 @@ const ProductHome = props => {
 
     return (
         <Card title={<Title/>}
-              extra={<Button onClick={() => props.history.push('/product/addupdate')} icon={<PlusOutlined/>} type="primary">Add</Button>}
+              extra={<Button onClick={() => props.history.push('/product/addupdate')} icon={<PlusOutlined/>}
+                             type="primary">Add</Button>}
               style={{width: '100%'}}>
             <Table dataSource={data} bordered rowKey='id'
                    pagination={{
@@ -95,8 +96,8 @@ const ProductHome = props => {
                         <Space size="middle">
                             <LinkButton onClick={() => props.history.push('/product/detail', {product: rowData})}
                                         style={{color: '#00BFFF'}}>detail</LinkButton>
-                            <LinkButton onClick={() => {
-                            }} style={{color: '#00BFFF'}}>modify</LinkButton>
+                            <LinkButton onClick={() => props.history.push('/product/addupdate', rowData)}
+                                        style={{color: '#00BFFF'}}>modify</LinkButton>
                         </Space>
                     )}
                 />

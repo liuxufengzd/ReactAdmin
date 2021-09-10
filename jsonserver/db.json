@@ -33,7 +33,7 @@
       "status": 1,
       "data": [
         {
-          "id": 1,
+          "id": "1",
           "name": "pc1",
           "desc": "this is pc1",
           "price": 1000,
@@ -42,52 +42,31 @@
           "secondId": 4
         },
         {
-          "id": 2,
+          "id": "2",
           "name": "pc2",
           "desc": "this is pc2",
           "price": 2000,
           "status": 0,
-          "firstId": 1
+          "firstId": 2,
+          "secondId": 6
         },
         {
-          "id": 3,
+          "id": "3",
           "name": "pc3",
           "desc": "this is pc3",
           "price": 2000,
-          "status": 0
+          "status": 0,
+          "firstId": 1
         }
       ]
     },
     {
       "id": 2,
-      "name": "n2",
-      "desc": "d2",
-      "pageNum": 2,
-      "pageSize": 3,
-      "total": 7,
-      "data": [
-        {
-          "id": 4,
-          "name": "pc4",
-          "desc": "this is pc4",
-          "price": 4000,
-          "status": 1
-        },
-        {
-          "id": 5,
-          "name": "pc5",
-          "desc": "this is pc5",
-          "price": 5000,
-          "status": 1
-        },
-        {
-          "id": 6,
-          "name": "pc6",
-          "desc": "this is pc6",
-          "price": 6000,
-          "status": 0
-        }
-      ]
+      "name": "pc2",
+      "desc": "this is pc2",
+      "price": 2000,
+      "status": 1,
+      "firstId": 1
     },
     {
       "id": 3,
@@ -98,72 +77,85 @@
       "total": 7,
       "data": [
         {
-          "id": 7,
+          "id": "7",
           "name": "pc7",
           "desc": "this is pc7",
           "price": 7000,
-          "status": 0
+          "status": 0,
+          "firstId": 1
         }
       ]
     }
   ],
   "category": [
     {
+      "isLeaf": false,
       "name": "Computers",
       "parentId": 0,
       "id": 1
     },
     {
+      "isLeaf": false,
       "parentId": 0,
       "id": 2,
       "name": "Furniture"
     },
     {
+      "isLeaf": false,
       "name": "Food",
       "parentId": 0,
       "id": 3
     },
     {
+      "isLeaf": true,
       "parentId": 1,
       "id": 4,
       "name": "PC1"
     },
     {
+      "isLeaf": true,
       "parentId": 1,
       "id": 5,
       "name": "PC2"
     },
     {
+      "isLeaf": true,
       "parentId": 2,
       "id": 6,
       "name": "Chair"
     },
     {
+      "isLeaf": true,
       "parentId": 2,
       "id": 7,
       "name": "Table"
     },
     {
+      "isLeaf": true,
       "name": "Meat",
       "parentId": 3,
       "id": 8
     },
     {
+      "isLeaf": true,
       "name": "Vegetable",
       "parentId": 3,
       "id": 9
     },
     {
+      "isLeaf": true,
       "name": "Fruit",
       "parentId": 0,
       "id": "FaK1Mo8nrlcp22W2s5DoZ"
     },
     {
+      "isLeaf": true,
       "parentId": 0,
       "name": "Person",
       "id": "oj09OC3w_BQRxRF-DRqHI"
     },
     {
+      "isLeaf": true,
       "name": "Books",
       "parentId": 0,
       "id": "YTMhe09YMOOZSL3DbezD7"
