@@ -42,6 +42,8 @@ export const reqLogin = (username, password) => ajax(`${SERVER_URL}/login`, {use
 
 export const reqCategory = parentId => ajax(`${SERVER_URL}/category`, {parentId})
 
+export const reqAllCategory = () => ajax(`${SERVER_URL}/category`)
+
 export const reqProductCategory = id => ajax(`${SERVER_URL}/category/${id}`)
 
 export const reqUpdateCategory = (id, name, parentId) =>

@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
-import {Button, Card, Input, Form, InputNumber, Select, Cascader} from 'antd';
+import React, {useEffect, useState} from 'react';
+import {Button, Card, Input, Form, InputNumber, Cascader, message} from 'antd';
 import LinkButton from "../../../components/linkbutton/LinkButton";
 import {ArrowLeftOutlined} from '@ant-design/icons';
+import {reqAllCategory} from "../../../api/api";
 
 const {Item} = Form
-const {Option} = Select
 
 const ProductAddUp = props => {
 
     // const [loading, setLoading] = useState(false);
     // const [imageUrl, setImageUrl] = useState('');
+    useEffect(getCategory, [])
+
+    const [options, setOptions] = useState([])
 
     function handleSubmit(values) {
         console.log(values)
@@ -26,23 +29,17 @@ const ProductAddUp = props => {
         )
     }
 
-    const options = [
-        {
-            value: 'zhejiang',
-            label: 'Zhejiang',
-            children: [
-                {
-                    value: 'hangzhou',
-                    label: 'Hangzhou',
-                    children: [
-                        {
-                            value: 'xihu',
-                            label: 'West Lake',
-                        },
-                    ],
-                },
-            ],
-        }]
+    async function getCategory() {
+        let res = await reqAllCategory()
+        if (res) {
+            let opts = res.filter(e => e.parentId === 0).map(e => ({value: e.id, label: e.name}))
+            opts.forEach(p => p.children = res.filter(e => e.parentId === p.value).map(e => ({
+                value: e.id,
+                label: e.name
+            })))
+            setOptions(opts)
+        } else message.warn('failed to get category data!')
+    }
 
     return (
         <Card title={<Title/>} style={{width: '96%', margin: '0 auto'}}>
@@ -67,11 +64,7 @@ const ProductAddUp = props => {
                     <InputNumber addonafter="$"/>
                 </Item>
                 <Item name='category' label="Category" rules={[{required: true}]}>
-                    <Cascader
-                        placeholder="Select Category"
-                        options={options}
-                        onChange={()=>{}}
-                    />
+                    <Cascader placeholder="Select Category" options={options}/>
                 </Item>
                 <Item wrapperCol={{offset: 2}}>
                     <Button type="primary" htmlType="submit">Submit</Button>
